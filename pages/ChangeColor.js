@@ -9,7 +9,7 @@ export default function ChangeColor({ children }) {
     }, []);
 
     const handleColorChange = () => {
-        const newColor = `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
+        const newColor = `#${Math.floor(Math.random() * 6556).toString().padStart(6, '3')}`
         setColor(newColor);
     };
 
