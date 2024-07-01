@@ -6,7 +6,6 @@ export default function FetchSWR() {
     const fetcher = (...args) => fetch(...args).then(res => res.json());
 
     const { data, error, isLoading, mutate } = useSWR('https://api.quotable.io/random', fetcher);
-    console.log(data)
 
     const handleNewQuote = async (handleColorChange) => {
         await mutate();
