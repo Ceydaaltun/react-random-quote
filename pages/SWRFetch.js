@@ -5,7 +5,8 @@ import ChangeColor from "./ChangeColor";
 export default function FetchSWR() {
     const fetcher = (...args) => fetch(...args).then(res => res.json());
 
-    const { data, error, isLoading, mutate } = useSWR('https://api.quotable.io/random', fetcher);
+    const { data, error, isLoading, mutate } = useSWR('https://dummyjson.com/quotes/random', fetcher);
+    console.log(data,"data")
 
     const handleNewQuote = async (handleColorChange) => {
         await mutate();
@@ -19,7 +20,7 @@ export default function FetchSWR() {
         <ChangeColor>
             {({ color, handleColorChange }) => (
                 <RandomQuote
-                    content={data.content}
+                    content={data.quote}
                     author={data.author}
                     handleNewQuote={() => handleNewQuote(handleColorChange)}
                     color={color}
